@@ -1,6 +1,6 @@
 # Welcome
 
-This is a group to be used to share solutions sto DOA and OOSD practice/prev
+This is a group to be used to share solutions to DOA and OOSD practice/prev
 exams.
 
 Please use standard linux naming convention such as all lower case and seperated
