@@ -63,11 +63,18 @@ to lowest) list.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part A
 ------------------------------------------------------------------------------------------------------------------------
-
+Refer to classes created
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B
 ------------------------------------------------------------------------------------------------------------------------
+Test one: Ensure a Human can not be created without a name. Input would be Player player = new Player(10.0, 10.0, "");
+The result should be to print invalid name on screen and request a new name.
+
+Test two: Ensure that when a tank is destroyed it cannot be moved. Input would be tank.setIsActive(false);
+tank.move(10,12);. THe output should be to put an error message of the screen saying the tank is destroyed and can't be
+driven.
+
 
 ==================================================== End Question 2 ====================================================
 
