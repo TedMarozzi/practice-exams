@@ -4,29 +4,55 @@
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part A
 ------------------------------------------------------------------------------------------------------------------------
-
+- A static variable is a variable that is consistent between all instances of a class, where as a non-static variable
+        be different between classes.
+- An application of a non-static variable could be a value called health that tracks how much health an enemy has left
+in a game. A static variable that might exist and be consistent through out all enemies might be the starting health
+of the enemy class (It should also be final).
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B
 ------------------------------------------------------------------------------------------------------------------------
-
+- Inheritance: The concept that multiple classes that share common actions (methods) and attributes (variables) can be
+    defined by a super class and inherit the common details then be extended to overaide or implement more details
+    ontop of the base class. Dog and Bird are animals hence they can both inherit the attribute of isAlive, but the
+    Bird Class may contain isFlying when the dog should not.
+- Polymorphism
+- Abstraction
+- Encapsulation: Binding all data and code that modify's that data together. This leads to the hiding of
+unnecessary information to the user and also leads to high levels of privacy in code which reduces the possibility of
+errors.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part C
 ------------------------------------------------------------------------------------------------------------------------
+The factory pattern solves the problem of the client of your class having to write the code necessary to create an instance
+of a class that you made for them. The factory pattern encapsulates object creation.
 
+Parts of the factory pattern
+- Client or main program which uses the factory.
+- Factory, creates and returns the class specified depending on the input given by the client.
+- A super class which the factory creates
+- Multiple sub classes which the factory decides which to create depending on input given to its create object method.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part D
 ------------------------------------------------------------------------------------------------------------------------
-
+Private is a keyword which means that only code int the same scope of the declaration can access the variable or method.
+The protected keyword means that only code in the same scope or from classes that inherit properties of the current scope
+or classes in the same package can access the data. Private is preferable if possible because it provides a greater
+level of privacy and information hiding than protected which can prevent subclasses modifying our data unintentionally.
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part E
 ------------------------------------------------------------------------------------------------------------------------
-
+Unit testing is the process of setting up automated testing to verify if your code is working automatically. A unit
+is one test that checks if your code works in one particular case. A unit test is a set of these units which aims to
+test every part of your code.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part F
 ------------------------------------------------------------------------------------------------------------------------
-
+The purpose of this code is to reduce a list down from all possible housees in the list to only those houses in which
+the rent is less than 400, the distance from the current location is less than 1000 in a unique and sorted (from highest
+to lowest) list.
 
 
 ==================================================== End Question 1 ====================================================
@@ -37,6 +63,7 @@
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part A
 ------------------------------------------------------------------------------------------------------------------------
+
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B
