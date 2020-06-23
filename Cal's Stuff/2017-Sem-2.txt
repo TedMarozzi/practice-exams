@@ -104,9 +104,11 @@ cars which would individually deliver the product by very different means.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B                                                          
 ------------------------------------------------------------------------------------------------------------------------
+Test 1: Test whether or not identification tags are only accepted if they are 7 digits long. TEST: Try to create a staff
+member with an 8 digit identification - to pass the program must throw an error.
 
-
-
+Test 2: Test whether starship size is logically implemented: TEST: Try to create a starship with a negative value for
+sice - to pass the program must throw an error
 ==================================================== End Question 3 ====================================================
 
 
