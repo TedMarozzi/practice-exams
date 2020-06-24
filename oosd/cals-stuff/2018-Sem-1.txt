@@ -1,0 +1,362 @@
+                                    Object Oriented Software Development (SWEN20003)
+                                              Final Exam Semester 1, 2018
+
+Student ID = 910519
+
+¬===================================================== Question 1 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+A static variable is one which holds the same variable across all classes in a program. One application could be when 
+implementing a singleton pattern for a computer game, where the main game class is referred to by many classes and we
+want to ensure that each class is making reference to the same object.
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+Encapsulation is the mechanism of wrapping data, classes and code acting on the together as a single unit. For instance
+a car contains many individual mechanical components but we still refer to the car as a complete item much of the time.
+
+Polymorphism is the principle that data types / classes should be constructed in order to solve a specific type of
+problem and should be flexible enough to be used in other classes / similar problem cases.
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part C                                                          
+------------------------------------------------------------------------------------------------------------------------
+The Factory design pattern solves the problem of abstracting class creation away from main driving classes. The Factory
+design pattern works by having a single class which contains the creation logic of one or more different classes. An
+example of this may be in a video game where we need to spawn new enemies on the fly - We may have an 'EnemyFactory'
+which may have a function 'getEnemy(String enemyType)', the factory class will decide which type of enemy to spawn based
+on the string input, which will condense that part of the logic into only a single line in the class which calls for the 
+creation of a new enemy.
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part D                                                          
+------------------------------------------------------------------------------------------------------------------------
+Private and protected are both information access modifiers in Java. If a variable is set to private, only the class it 
+belongs to has direct access to it. This is opposed to protected, wherein only classes within the same package as the
+class that the data belongs to have direct access to it. We generally prefer private attributes as they more succinctly
+reflect the principle of encapsulation - in that it is rarely preferable for another class to have direct access to the
+components of a class, even if they are in the same package.
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part E                                                          
+------------------------------------------------------------------------------------------------------------------------
+A unit test is a method that instantiates a small portion of a program and verifies it's behaviour independently from
+other pats. The 'unit' being tested could be a method, class or interaction and the testing process involves
+instantiating part of the program and running under a certain set of conditions, then logging the results against a
+predefined condition or set of conditions to have the program considered to have passed the unit test.
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part F                                                          
+------------------------------------------------------------------------------------------------------------------------
+The stream pipeline modifies a list of houses by filtering it to only contain houses with rent under 400 that are less
+than 1000 units away from the GPSPosition 'currentLocation', then sorts these from lowest rent to highest rent. This
+type of code may be seen on a real estate app such as Domain or Real Estate . com and used to adjust search results based
+on conditions input by the user.
+
+==================================================== End Question 1 ====================================================
+
+
+
+¬===================================================== Question 2 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+Skeleton Classes:
+
+public abstract class Asset {
+	private Position position;
+	private Mesh model;
+	
+	public abstract void move(Input input):
+
+}
+
+public abstract class Vehicle extends Asset {
+	private int maxSpeed;
+	// if a vehicle is not active we can assume it is destroyed, hence
+	// we can use a boolean to represent this
+	private boolean isActive;
+
+	@Override
+	public abstract void move(Input input);
+}
+
+public class Tank extends Vehicle {
+	private static final int MAX_NUMBER_OF_PLAYERS = 4;
+	private int fuel;
+	private int nPlayers;
+	private Player[] = new Player[MAX_NUMBER_OF_PLAYERS];
+	
+	public void addPLayer();
+
+}
+
+public class Plane extends Vehicle {
+
+}
+
+public class Player extends Asset {
+	private int nKnockOuts;
+	private int remainingAmmo;
+	private static int activePlayers;	
+
+	public void fireWeapon();
+}
+
+public class HumanPlayer extends Player {
+	private String username;
+}
+
+public class AIPlayer extends Player {
+
+}
+
+// Not sure how to reflect player control of tanks and human players in skeleton code,
+// but possible to use different move() implementations based on a boolean of whether or not
+// the asset is being player controlled.
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                         
+------------------------------------------------------------------------------------------------------------------------
+TEST 1: test whether the activePlayers count is shared by instantiating the game with several players and testing whether
+their individual 'activePlayer' counts reference the same object. Test passes if assertion of equality on each 
+activePlayers value does not fail.
+
+TEST 2: Test whether 4 players max is enforced in Tank class by instantiating a tank and trying to add more than 4
+players to it. Test is passed if the Tank class throws an error on attempting to add 5th player.
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part C                                                         
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part D                                                          
+------------------------------------------------------------------------------------------------------------------------
+
+
+==================================================== End Question 2 ====================================================
+ 
+
+
+¬===================================================== Question 3 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class Position implements Comparable<Position>{
+    private static final Position ORIGIN = new Position(0,0);
+    private final double x;
+    private final double y;
+
+    public Position(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public double distanceTo(Position position){
+        double xDist = position.x - this.x;
+        double yDist = position.y - this.y;
+        return Math.sqrt((xDist * xDist) + (yDist * yDist));
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + y +
+                ')';
+    }
+
+    @Override
+    public int compareTo(Position position) {
+        double differenceInDist = this.distanceTo(ORIGIN) - position.distanceTo(ORIGIN);
+        if (differenceInDist > 0){
+            return 1;
+        }
+        else if (differenceInDist < 0){
+            return -1;
+        }
+        else return 0;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class Location implements Comparable<Location>{
+    private Position position;
+    private LocationType locationType;
+
+    public Location(Position position, LocationType locationType){
+        this.position = position;
+        this.locationType = locationType;
+    }
+
+    public double distanceTo(Location location){
+        return position.distanceTo(location.position);
+    }
+
+    @Override
+    public String toString() {
+        return locationType.getType().toUpperCase() +
+                "at " + position.toString();
+    }
+
+    @Override
+    public int compareTo(Location location) {
+        return position.compareTo(location.position);
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public void setLocationType(LocationType locationType) {
+        this.locationType = locationType;
+    }
+
+    public LocationType getLocationType() {
+        return locationType;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part C                                                         
+
+------------------------------------------------------------------------------------------------------------------------
+public class Map {
+    List<Location> locationList;
+
+    public void addLocation(Location location){
+        locationList.add(location);
+    }
+
+    public void sortLocations(){
+        locationList = locationList.stream().sorted(Location::compareTo).collect(Collectors.toList());
+    }
+}
+
+==================================================== End Question 3 ====================================================
+
+
+
+¬===================================================== Question 4 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+    public void translateDocument(String filename, String language,
+                                  HashMap<String, HashMap<String, String>> translations) throws
+            LanguageNotFoundException, FileNotFoundException{
+        if (!translations.containsKey(language)){
+            throw new LanguageNotFoundException();
+        }
+        ArrayList<String> docLines = retrieveContents(filename);
+        ArrayList<String> translatedLines = new ArrayList<>();
+        // for each line in the document, translate each word and add the line
+        // to 'translatedLines'
+        for (String line : docLines){
+            for (String word : line.split(" ")){
+                translatedLines.add(translations.get(language).get(word));
+            }
+        }
+        writeTranslation(String.format("%s-%s.%s", filename.split(".")[0], language,
+                filename.split(".")[1]), translatedLines);
+    }
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+==================================================== End Question 4 ====================================================
+¬===================================================== Question 5 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class MathsMap<K,V> implements Mathematical<MathsMap<K,V>> {
+    private HashMap<K,V> map;
+
+    public MathsMap(){
+        this.map = new HashMap<>();
+    }
+
+    void put(K key, V value){
+        map.put(key,value);
+    }
+    void remove(K key){
+        map.remove(key);
+    }
+
+    MathsMap<K,V> add(MathsMap<K,V> other){
+        MathsMap<K,V> newMap = new MathsMap<>();
+        for (K key : map.keySet()){
+            newMap.put(key, map.get(key));
+        }
+        for (K key : other.getMap().keySet()){
+            if (!newMap.getMap().containsKey(key)){
+                newMap.put(key, other.getMap().get(key));
+            }
+        }
+        return newMap;
+    }
+
+    MathsMap<K,V> subtract(MathsMap<K,V> other){
+        MathsMap<K,V> newMap = new MathsMap<>();
+
+        for (K key : other.getMap().keySet()){
+            map.remove(key);
+        }
+        return newMap;
+    }
+
+    @Override
+    public String toString() {
+        ArrayList<String> entries = new ArrayList<>();
+        for (K key : map.keySet()){
+            entries.add(String.format("%s = %s", key.toString(), map.get(key).toString()));
+        }
+        String outputString = "{";
+        for (int i = 0; i < entries.size() - 1; i++){
+            outputString = String.format("%s%s, ", outputString, entries.get(i));
+        }
+        outputString = String.format("%s}", outputString);
+        return outputString;
+    }
+
+    public HashMap<K, V> getMap() {
+        return map;
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+==================================================== End Question 5 ====================================================
+¬===================================================== END OF EXAM =====================================================
