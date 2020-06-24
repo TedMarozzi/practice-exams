@@ -31,7 +31,7 @@ example of this may be in a video game where we need to spawn new enemies on the
 which may have a function 'getEnemy(String enemyType)', the factory class will decide which type of enemy to spawn based
 on the string input, which will condense that part of the logic into only a single line in the class which calls for the 
 creation of a new enemy.
-
+Parts: Client, Factory, Super Class (the factory returns), Sub Classes (depends on input to Factory)
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part D                                                          

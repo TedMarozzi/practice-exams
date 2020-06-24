@@ -18,7 +18,7 @@ public class Position implements Comparable<Position>{
 
     @Override
     public String toString() {
-        return "(" + x + y +
+        return "(" + x + ',' + y +
                 ')';
     }
 
