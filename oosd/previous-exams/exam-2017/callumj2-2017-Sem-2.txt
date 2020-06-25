@@ -1,5 +1,5 @@
                                     Object Oriented Software Development (SWEN20003)
-                                              Final Exam Semester 1, 2020
+                                              Final Exam Semester 2, 2017
 
 Student ID = 910519
 
@@ -8,39 +8,48 @@ Student ID = 910519
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part A                                                          
 ------------------------------------------------------------------------------------------------------------------------
-Abstraction is the one of the principles of object oriented programming. It is the idea that all information, data and
-coding relating to a class should be hidden from other classes and relevant pieces of information should only be 
-accessible through the classes public methods. Abstraction is achieved in object oriented programming mainly through 
-privacy access modifiers.
+Encapsulation is one of the principles of object oriented software design, and refers to the concept that each class 
+should hide specifics of its implementation from the user. To achieve encapsulation for a class we set all it's fields 
+and methods to private except for those that will be accessed by other functions.
 
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B                                                          
 ------------------------------------------------------------------------------------------------------------------------
-The term immutable refers in this context to the inability of a class to be changed by itself or other classes. This is
-achieved in java by setting all the classes variables to private and final and only allowing viewing access via getter
-functions as well as not creating any setter functions.
+Tools like UML are useful in OOSD for visualising the overall class structures and interactions in a format that is easy 
+to understand without getting lost in the specific code implementation. It is also helpful for forward planning of a
+project as it allows for a broad plan to be produced before production begins.
 
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part C                                                          
 ------------------------------------------------------------------------------------------------------------------------
-The Factory Method design pattern solves the problem of creating multiple instances of subclass belonging to a common
-super class by abstracting the class creation coding away from the main body of code and into a 'factory' class. The
-components of the factory design pattern are:
-- The Client: The class which makes a specific spawn request of the factory
-- The Factory: Which receives specific spawn requests and handles the instantiation of new objects.
-- The Super Class: The general type(s) of class the factory can return:
-- Specific SUbclasses: Multiple specific subclasses which can be created when the factory is called to create a new
-object.	
+Design patterns are reusable solutions to commonly occurring problems in programming.
+Firstly, using a design pattern allows for clearer communication between software designers about a project since they
+are established solutions.
+The second reason is that they are easy to troubleshoot and implement due to their widespread use.
+
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part D                                                          
 ------------------------------------------------------------------------------------------------------------------------
-The stream pipeline creates a new list of strings by taking an existing group of people, mapping each person to the
-plague they are associated with, then filtering out plagues with under one million deaths and then collecting the names
-of these plagues as our list - we call this list 'deadlyPlagueNames'.
+Cohesion refers to the abiliy of classes or modules to work well with a wide variety of other code.
+Coupling is the interdependency of classes or modules with other pieces of code - to be avoided if possible, high
+coupling involves code that passes around or relies on information from other classes.
 
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part E                                                          
+------------------------------------------------------------------------------------------------------------------------
+Automated software testing involves using an automated test system to run your program under various cases and log the
+results. This is better than manual testing, since multiple test cases can be ran in a very short space of time,
+resulting in greater time efficiency. Secondly, automated testing will produce very accurate results since we can
+be consistent in the types of tests being ran.
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part F                                                          
+------------------------------------------------------------------------------------------------------------------------
+Filters a list of members to contain only active members with over 100,000 followers, then sorts it from least amount
+of follower to most and then collects the results as a list
 
 ==================================================== End Question 1 ====================================================
 
@@ -51,19 +60,33 @@ of these plagues as our list - we call this list 'deadlyPlagueNames'.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part A                                                          
 ------------------------------------------------------------------------------------------------------------------------
-
+The Strategy design allows for class behaviour to be changed at run time by having a class utilise a strategy interface,
+which can be altered and switched. This solves problems where 
 
 
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B                                                         
 ------------------------------------------------------------------------------------------------------------------------
-
-
-
+One benefit of this design pattern is that it enables the application to utilise different strategies without requiring
+any extra code inside it. This is much more succinct than an iplementation without the strategy pattern, which may have
+to rely on a whole host of if and else statements which would overcomplicate our application.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part C                                                         
-------------------------------------------------------------------------------------------------------------------------
 
+------------------------------------------------------------------------------------------------------------------------
+It may be helpful to think of the application as a video game console, and the strategy is the disc that would be put
+into the console. The Application knows that it will take in a 'strategy' disc that will contain an algorithm it can
+run, however it doesn't necessarily know the specifics of what that algorithm is. The Application calls it's function
+operation() which returns the result of the .algorithm() function of whichever strategy is contained inside the,
+Application - the strategy (or disc) can be changed at any time during the program.
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part D                                                          
+------------------------------------------------------------------------------------------------------------------------
+One example could involve writing an application to handle deliveries of products. Our application may contain a
+.deliver() method which involves applying a particular strategy. Strategies may vary involving either boats, planes, or
+cars which would individually deliver the product by very different means. 
 
 
 ==================================================== End Question 2 ====================================================
@@ -81,9 +104,11 @@ of these plagues as our list - we call this list 'deadlyPlagueNames'.
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B                                                          
 ------------------------------------------------------------------------------------------------------------------------
+Test 1: Test whether or not identification tags are only accepted if they are 7 digits long. TEST: Try to create a staff
+member with an 8 digit identification - to pass the program must throw an error.
 
-
-
+Test 2: Test whether starship size is logically implemented: TEST: Try to create a starship with a negative value for
+sice - to pass the program must throw an error
 ==================================================== End Question 3 ====================================================
 
 

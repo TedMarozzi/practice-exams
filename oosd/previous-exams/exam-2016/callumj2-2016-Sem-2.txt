@@ -1,0 +1,285 @@
+                                    Object Oriented Software Development (SWEN20003)
+                                              Final Exam Semester 2, 2016
+
+Student ID = 910519
+
+¬===================================================== Question 1 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class Person {
+    private final String lastName;
+    private final String firstName;
+    
+    public Person(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName{
+	return firstName;
+    }
+
+    public String getLastName{
+	return lastName;
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+Subclass student:
+
+public final class Student extends Person{
+    private static final IdentityFactory identityFactory;
+    private final String studentID;
+    private float GPA;
+
+    public Student(String firstName, String lastName){
+	// call the super constructor to instantiate the person
+        super(firstName, lastName);
+	// create a unique student number for the student
+        this.studentID = identityFactory.createNewID();
+    }
+
+    public void updateGPA(float GPA){
+	this.GPA = GPA;
+    }
+
+    public float getGPA() {
+        return GPA;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part C                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class Course {
+    private final String courseName;
+    private final int year;
+    private ArrayList<Student> enrolledStudents;
+
+    public Course(String courseName, int year){
+        this.courseName = courseName;
+        this.year = year;
+        this.enrolledStudents = new ArrayList<>();
+    }
+
+    public void addStudent(Student student){
+        enrolledStudents.add(student);
+    }
+
+    public void removeStudentByID(String studentID){
+        enrolledStudents.removeIf(student -> student.getStudentID().equals(studentID));
+    }
+
+    public float getAverageStudentGPA(){
+        float sum = 0;
+        for (Student student : enrolledStudents){
+            sum += student.getGPA();
+        }
+        return sum/enrolledStudents.size();
+    }
+
+    public void displayStudents(DisplayStrategy strategy){
+        strategy.display(enrolledStudents);
+    }
+
+}
+
+public interface DisplayStrategy {
+    void display(ArrayList<Student> students);
+}
+
+
+public class GPABasedDisplay implements DisplayStrategy {
+
+    public GPABasedDisplay() {};
+
+    @Override
+    public void display(ArrayList<Student> students) {
+        Student[] sortedStudents = the array of students sorted based on GPA
+        for (Student student : sortedStudents) {
+            System.out.println(String.format("%s %s, %s: GPA: %f", student.getFirstName(), student.getLastName(),
+                    student.getStudentID(), student.getGPA()));
+        }
+    }
+}
+
+public class NameBasedDisplay implements DisplayStrategy{
+
+    public NameBasedDisplay(){};
+
+    @Override
+    public void display(ArrayList<Student> students){
+        Student[] sortedStudents = the array of students sorted based on last name
+        for (Student student : sortedStudents){
+            System.out.println(String.format("%s %s, %s: GPA: %f", student.getFirstName(), student.getLastName(),
+                    student.getStudentID(), student.getGPA()));
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part D                                                          
+------------------------------------------------------------------------------------------------------------------------
+N/A
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part E                                                          
+------------------------------------------------------------------------------------------------------------------------
+N/A
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part F                                                          
+------------------------------------------------------------------------------------------------------------------------
+N/A
+
+==================================================== End Question 1 ====================================================
+
+
+
+¬===================================================== Question 2 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+public static int num_discs(int n, int[] s){
+        ArrayList<Integer> discs = new ArrayList<>();
+        discs.add(n);
+        int maxCapacity = n;
+
+        // for each element in the array, attempt to insert it
+        for (int file : s) {
+            boolean filePlaced = false;
+            for (int i = 0; i < discs.size(); i ++) {
+                if (discs.get(i) > file) {
+                    discs.set(i, discs.get(i) - file);
+                    filePlaced = true;
+                    break;
+                }
+            }
+            if (!filePlaced) {
+                discs.add(n);
+            }
+        }
+        return discs.size();
+    }
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                         
+------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part C                                                         
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part D                                                          
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+==================================================== End Question 2 ====================================================
+ 
+
+
+¬===================================================== Question 3 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class Pair<T,S> {
+    T data1;
+    S data2;
+
+    public Pair(T data1, S data2){
+        this.data1 = data1;
+        this.data2 = data2;
+    }
+
+    public void setData1(T data1) {
+        this.data1 = data1;
+    }
+
+    public void setData2(S data2) {
+        this.data2 = data2;
+    }
+
+    public T getData1() {
+        return data1;
+    }
+
+    public S getData2() {
+        return data2;
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+public class TwoDHashMap<K1, K2, V> {
+    private final HashMap<Pair<K1,K2>, V>valueMap;
+
+    public TwoDHashMap(){
+        this.valueMap = new HashMap<>();
+    }
+    public boolean containsKey(K1 k1, K2 k2){
+        return valueMap.containsKey(new Pair<>(k1, k2));
+    }
+
+    public V get(K1 k1, K2 k2){
+        return valueMap.get(new Pair<>(k1,k2));
+    }
+
+    public void put(K1 k1, K2 k2, V v){
+        valueMap.put(new Pair<>(k1,k2), v);
+    }
+
+    public ArrayList<Pair<K1,K2>> getAllKeys(){
+        Set<Pair<K1,K2>> keySet = valueMap.keySet();
+        ArrayList<Pair<K1,K2>> pairs = new ArrayList<>();
+        for (Pair<K1,K2> pair : keySet){
+            pairs.add(pair);
+        }
+        return pairs;
+    }
+}
+
+
+==================================================== End Question 3 ====================================================
+
+
+
+¬===================================================== Question 4 ======================================================
+============================================= REMINDER: COMMIT YOUR CHANGES ============================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+	class patient {
+	private String name
+==================================================== End Question 4 ====================================================
+
+¬===================================================== Question 5 ======================================================
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part A                                                          
+------------------------------------------------------------------------------------------------------------------------
+Abstraction is the principle of hiding all but the necessary values and methods of a class from the client.
+Inheritance is the principle that sub classes should have all the methods and parameters as their parent class.
+Delegation is a method of passing the specific implementation of a task to another class to handle.
+------------------------------------------------------------------------------------------------------------------------
+                                                         Part B                                                          
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+¬===================================================== END OF EXAM =====================================================

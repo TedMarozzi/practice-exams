@@ -12,7 +12,6 @@ A static variable is one which holds the same variable across all classes in a p
 implementing a singleton pattern for a computer game, where the main game class is referred to by many classes and we
 want to ensure that each class is making reference to the same object.
 
-
 ------------------------------------------------------------------------------------------------------------------------
                                                          Part B                                                          
 ------------------------------------------------------------------------------------------------------------------------
