@@ -361,10 +361,16 @@ public class WordCount {
 
         }
 
-        for (Map.Entry<String,Integer> entry : freq.entrySet()) {
+        Stream<Map.Entry<String,Integer>> sortedFreq =
+            map.entrySet().stream()
+            .sorted(Map.Entry.comparingByValue());
+
+        for (Map.Entry<String,Integer> entry : sortedFreq.entrySet()) {
             System.out.println("Word = " + entry.getKey() +
                     ", Frequency = " + entry.getValue());
         }
+
+
 
 
     }
