@@ -25,11 +25,28 @@ public class MathsMap<K,V> implements Mathematical<MathsMap<K,V>> {
         map.remove(key);
     }
 
-    MathsMap<K, V> add(MathsMap<K, V> other)
-    {
 
+    /* Code imported from Callum Johnson Labs pty Ltd. */
+    MathsMap<K,V> add(MathsMap<K,V> other){
+        MathsMap<K,V> newMap = new MathsMap<>();
+        for (K key : map.keySet()){
+            newMap.put(key, map.get(key));
+        }
+        for (K key : other.getMap().keySet()){
+            if (!newMap.getMap().containsKey(key)){
+                newMap.put(key, other.getMap().get(key));
+            }
+        }
+        return newMap;
+    }
 
+    MathsMap<K,V> subtract(MathsMap<K,V> other){
+        MathsMap<K,V> newMap = new MathsMap<>();
 
+        for (K key : other.getMap().keySet()){
+            map.remove(key);
+        }
+        return newMap;
     }
 
 
