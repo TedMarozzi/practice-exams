@@ -38,7 +38,8 @@ public final class Position implements Comparable<Position> {
     @Override
     public int compareTo(Position pos) {
         Position origin = new Position(0.00, 0.00);
-        return (int) this.distanceTo(origin)) - (pos.distanceTo(origin);
+        double diff = this.distanceTo(origin) - position.distanceTo(origin);
+        return Math.ceil(diff);
 
     }
 }

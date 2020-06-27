@@ -17,7 +17,7 @@ of the enemy class (It should also be final).
     defined by a super class and inherit the common details then be extended to overaide or implement more details
     ontop of the base class. Dog and Bird are animals hence they can both inherit the attribute of isAlive, but the
     Bird Class may contain isFlying when the dog should not.
-- Polymorphism
+- Polymorphism is the concept that a  // TODO: make definitions
 - Abstraction
 - Encapsulation: Binding all data and code that modify's that data together. This leads to the hiding of
 unnecessary information to the user and also leads to high levels of privacy in code which reduces the possibility of
@@ -54,6 +54,8 @@ The purpose of this code is to reduce a list down from all possible housees in t
 the rent is less than 400, the distance from the current location is less than 1000 in a unique and sorted (from highest
 to lowest) list.
 
+// Forgot to givr example
+
 
 ==================================================== End Question 1 ====================================================
 
@@ -76,7 +78,8 @@ tank.move(10,12);. THe output should be to put an error message of the screen sa
 driven.
 
 
-==================================================== End Question 2 ====================================================
+==================================================== End
+ Question 2 ====================================================
 
 
 
