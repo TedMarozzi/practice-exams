@@ -1,0 +1,204 @@
+Examinable content as discussed in the last lecture
+ 
+
+What Is an Algorithm?
+
+Important concept is pseudocode
+
+Understand which technique to use, e.g., approximate vs exact
+
+ 
+
+(Abstract) data structures
+
+Array, linked list, tree, graph stack and queue, priority queue, and so forth
+
+Operations on data structures
+
+ 
+
+Algorithm efficiency
+
+RAM model and basic operation
+
+What is the input size
+
+Best case, worst case, and average case analysis (and amortized)
+
+Large numbers, growth rate and asymptotics
+
+Big Oh, Omega, Theta notation
+
+Practical examples for algorithm efficiency (remember l'Hospital rule)
+
+Recursive algorithms: telescoping & backward substitutions, smoothness rule
+
+ 
+
+Selection sort
+
+Properties of sorting algorithms such as stable
+
+ 
+
+Brute force algorithms
+
+When to use
+
+Brute force string matching and closest pair algorithm
+
+Traveling salesperson problem and Knapsack
+
+ 
+
+Graphs
+
+Exhaustive search on graphs: depth first and breadth first
+
+Graph concepts
+
+Data structures: adjacency list and adjacency matrix
+
+Depth first traversal (including traversal stack) and breadth first (traversal queue)
+
+Two ways of topological sorting
+
+ 
+
+Greedy algorithms
+
+Prim and Dijkstra
+
+Priority queue
+
+Prim: MST
+
+Dijkstra: shortest path
+
+ 
+
+Divide and conquer algorithms
+
+Binary trees (height as example), full and complete
+
+Tree traversals: pre-, in-, post-, level-order
+
+Closest pair problem
+
+ 
+
+Master Theorem
+
+When and how to apply it
+
+Why does it work
+
+ 
+
+Sorting
+
+Insertion sort (decrease and conquer)
+
+When it is useful and how to make it faster (sentinel)
+
+Practical implementations
+
+ 
+
+Mergesort (divide and conquer)
+
+Worst case n log n
+
+Lomuto and Hoare partitioning
+
+ 
+
+Heaps
+
+Heap, Bottom Up Heapify, Eject
+
+Heapsort and its worst case complexity
+
+Summary of comparison based algorithms and their practical implementations
+
+ 
+
+More data structures
+
+Dictionaries
+
+Binary Search Trees
+
+Avoid degenerate trees
+
+AVL trees as self-balancing trees using rotations
+
+Comparison of AVL vs Red black trees (also self balancing)
+
+Change of representation to avoid degenerate trees: BST to 2-3 tree (easy to keep balanced)
+
+ 
+
+Hashing
+
+Hash tables as data structure and hash functions
+
+Average performance is O(1) for search, insertion and deletion
+
+Collisions: separate chaining, linear robing and double hashing
+
+Rehashing
+
+ 
+
+Data compression
+
+Fixed-length vs run-length encoding
+
+Tries
+
+Huffman encoding
+
+Data compression in practice
+
+ 
+
+Sorting
+
+Distribution, counting and bucket sort
+
+Comparison of counting and bucket sort
+
+Radix sort
+
+Practical implementations
+
+ 
+
+String search
+
+Input enhancements
+
+Horspool's algorithms
+
+ 
+
+Dynamic programming
+
+Transitive closure: Warshall's algorithm
+
+All pairs shortest path: Floyd's algorithm
+
+Knapsack revisited (memoing)
+
+ 
+
+Complexity theory
+
+P, NP
+
+Decision and verification problems
+
+Reductions
+
+3-SAT (Boolean 3-satisfiability problem)
