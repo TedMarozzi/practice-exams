@@ -3,7 +3,7 @@ package e2018;
 public class Location implements Comparable<Location>{
     private Position position;
     private LocationType locationType;
-
+    
     public Location(Position position, LocationType locationType){
         this.position = position;
         this.locationType = locationType;
